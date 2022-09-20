@@ -38,6 +38,13 @@ Using the Pandas read_csv function and the os module, import the data from the n
       student_df = pd.read_csv(full_student_data)
 
 Using the head function to confirm that Pandas properly imported the data.
+          
+      student_df.head()
+      
+      
+      
+      
+      
 
 ### Deliverable 2: Prepare the Data
 
@@ -45,14 +52,55 @@ To prepare and clean your data for analysis, complete the following steps:
 
   * Check for and remove all rows with NaN, or missing, values in the student DataFrame.
 
+            # Check for null values
+            student_df.isna().sum()
+            
+            # Drop rows with null values and verify removal
+            c1_student_df=student_df.dropna(how = 'any')
+            c1_student_df.isnull().sum()
+
+
   * Check for and remove all duplicate rows in the student DataFrame.
 
-  * Use the str.replace function to remove the "th" from the grade levels in the grade column.
+            # Check for duplicated rows
+            c1_student_df.duplicated().sum()
+            
+            # Drop duplicated rows and verify removal
+            c2_student_df = c1_student_df.drop_duplicates()
+            c2_student_df.duplicated().sum()
 
+            
+            # Examine the grade column to understand why it is not an int
+            c2_student_df['grade']
+            
+         
+            
   * Check data types using the dtypes property.
 
+            # Check data types
+            c2_student_df.dtypes
+            
   * Remove the "th" suffix from every value in the grade column using str and replace.
-
+  
+             # Remove the non-numeric characters and verify the contents of the column
+            c2_student_df["grade"]=c2_student_df['grade'].str.replace("th","")
+            c2_student_df['grade']
+            
   * Change the grade colum to the int type and verify column types.
 
+            c2_student_df['grade']=c2_student_df['grade'].astype(int)
+
   * Use the head (and/or the tail) function to preview the DataFrame.
+
+            c2_student_df.tail(5)
+ 
+ 
+ ### Summarize the Data
+ 
+Describe the data using summary statistics on the data as a whole and on individual columns.
+
+   * Generate the summary statistics for each DataFrame by using the describe function.
+
+   * Display the mean math score using the mean function.
+
+   * Store the minimum reading score as min_reading_score.
