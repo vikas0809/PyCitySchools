@@ -34,8 +34,8 @@ To collect the data,we complete the following steps:
 
 Using the Pandas read_csv function and the os module, import the data from the new_full_student_data.csv file, and create a DataFrame called student_df.
 
-   full_student_data = os.path.join('Resources/new_full_student_data.csv')
-   student_df = pd.read_csv(full_student_data)
+      full_student_data = os.path.join('Resources/new_full_student_data.csv')
+      student_df = pd.read_csv(full_student_data)
 
 Using the head function to confirm that Pandas properly imported the data.
 
