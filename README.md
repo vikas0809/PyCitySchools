@@ -40,16 +40,16 @@ Using the head function to confirm that Pandas properly imported the data.
 
 To prepare and clean your data for analysis, complete the following steps:
 
-  Check for and remove all rows with NaN, or missing, values in the student DataFrame.
+  * Check for and remove all rows with NaN, or missing, values in the student DataFrame.
 
-  Check for and remove all duplicate rows in the student DataFrame.
+  * Check for and remove all duplicate rows in the student DataFrame.
 
-  Use the str.replace function to remove the "th" from the grade levels in the grade column.
+  * Use the str.replace function to remove the "th" from the grade levels in the grade column.
 
-  Check data types using the dtypes property.
+  * Check data types using the dtypes property.
 
-  Remove the "th" suffix from every value in the grade column using str and replace.
+  * Remove the "th" suffix from every value in the grade column using str and replace.
 
-  Change the grade colum to the int type and verify column types.
+  * Change the grade colum to the int type and verify column types.
 
-Use the head (and/or the tail) function to preview the DataFrame.
+  * Use the head (and/or the tail) function to preview the DataFrame.
