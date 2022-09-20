@@ -7,9 +7,9 @@ These insights are used to inform discussions and strategic decisions at the sch
 
 Requirements:
 
-Jupyter Notebooks
-Pandas libraries
-Os libraries
+-- Jupyter Notebooks
+-- Pandas libraries
+-- Os libraries
 
 ## Results
 
