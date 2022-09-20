@@ -59,7 +59,6 @@ To prepare and clean your data for analysis, complete the following steps:
             c1_student_df=student_df.dropna(how = 'any')
             c1_student_df.isnull().sum()
 
-
   * Check for and remove all duplicate rows in the student DataFrame.
 
             # Check for duplicated rows
@@ -69,12 +68,9 @@ To prepare and clean your data for analysis, complete the following steps:
             c2_student_df = c1_student_df.drop_duplicates()
             c2_student_df.duplicated().sum()
 
-            
             # Examine the grade column to understand why it is not an int
             c2_student_df['grade']
-            
-         
-            
+               
   * Check data types using the dtypes property.
 
             # Check data types
@@ -101,6 +97,59 @@ Describe the data using summary statistics on the data as a whole and on individ
 
    * Generate the summary statistics for each DataFrame by using the describe function.
 
+            # Display summary statistics for the DataFrame
+            c2_student_df.describe()
+
    * Display the mean math score using the mean function.
 
+            # Display the mean math score using the mean function
+            c2_student_df["math_score"].mean()
+
    * Store the minimum reading score as min_reading_score.
+
+            # Store the minimum reading score as min_reading_score
+            min_reading_score=c2_student_df["reading_score"].min()
+            min_reading_score
+            
+            
+### Drill Down into the Data
+
+Drill down to specific rows, columns, and subsets of the data.
+
+To drill down into the data, complete the following steps:
+
+   * Use loc to display the grade column.
+  
+            # Use loc to display the grade column
+            c2_student_df.loc[:,'grade']
+
+   * Use iloc to display the first 3 rows and columns 3, 4, and 5.
+
+            # Use `iloc` to display the first 3 rows and columns 3, 4, and 5.
+            c2_student_df.iloc[0:3,3:6]
+
+   * Show the rows for grade nine using loc.
+
+            # Select the rows for grade nine and display their summary statistics using `loc` and `describe`.
+            c2_student_df.loc[c2_student_df['grade']==9].describe()
+
+   * Store the row with the minimum overall reading score as min_reading_row using loc and the                         min_reading_score found in Deliverable 3.
+
+            # Store the row with the minimum overall reading score as `min_reading_row`
+            # using `loc` and the `min_reading_score` found in Deliverable 3.
+            min_reading_row = c2_student_df.loc[c2_student_df['reading_score']== min_reading_score]
+            min_reading_row
+
+   * Find the reading scores for the school and grade from the output of step three using loc with multiple          conditional statements.
+
+            # Use loc with conditionals to select all reading scores from 10th graders at Dixon High School.
+            c2_student_df.loc[(c2_student_df['grade'] == 10) & 
+            (c2_student_df['school_name'] == 'Dixon High School')][['school_name','reading_score']]
+
+   * Using conditional statements and loc or iloc, find the mean reading score for all students in grades 11 and      12 combined.
+
+            # Find the mean reading score for all students in grades 11 and 12 combined.
+            #filled_student_df = student_df.fillna(value = student_df['reading_score'].mean())
+            c2_student_df.loc[(c2_student_df["grade"] == 11) | (c2_student_df["grade"] ==                                     12),"reading_score"].mean()
+            
+ 
