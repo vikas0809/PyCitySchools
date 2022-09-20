@@ -153,3 +153,27 @@ To drill down into the data, complete the following steps:
             c2_student_df.loc[(c2_student_df["grade"] == 11) | (c2_student_df["grade"] ==                                     12),"reading_score"].mean()
             
  
+### Make Comparisons Between District and Charter Schools
+
+Compare district vs charter schools for budget, size, and scores.
+
+
+Make comparisons within your data by completing the following steps:
+
+   * Using the groupby and mean functions, look at the average reading and math scores per school type.
+
+            # Use groupby and mean to find the average reading and math scores for each school type.
+            c2_student_df.groupby('school_type')[['reading_score','math_score']].mean()
+               * Using the groupby and count functions, find the total number of students at each school.
+
+   * Using the groupby and count functions, find the total number of students at each school.
+
+            # Use the `groupby`, `count`, and `sort_values` functions to find the
+            # total number of students at each school and sort from most students to least students.
+            c2_student_df.groupby('school_name')['student_id'].count().sort_values(ascending=False)
+
+   * Using the groupby and mean functions, find the average budget per grade for each school type.
+
+            c2_student_df.groupby(['school_type','grade'])['math_score'].mean().round(1)
+            
+ 
