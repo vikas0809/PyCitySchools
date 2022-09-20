@@ -24,4 +24,32 @@ For detailed results and the code please refer to the jupyter notebook file belo
 [Challange_book][]
 
 
+## Analysis process
 
+The whole analysis process is divided into 6 parts
+
+### 1.Collect the Data
+
+To collect the data,we complete the following steps:
+
+Using the Pandas read_csv function and the os module, import the data from the new_full_student_data.csv file, and create a DataFrame called student_df.
+
+Using the head function to confirm that Pandas properly imported the data.
+
+### Deliverable 2: Prepare the Data
+
+To prepare and clean your data for analysis, complete the following steps:
+
+  Check for and remove all rows with NaN, or missing, values in the student DataFrame.
+
+  Check for and remove all duplicate rows in the student DataFrame.
+
+  Use the str.replace function to remove the "th" from the grade levels in the grade column.
+
+  Check data types using the dtypes property.
+
+  Remove the "th" suffix from every value in the grade column using str and replace.
+
+  Change the grade colum to the int type and verify column types.
+
+Use the head (and/or the tail) function to preview the DataFrame.
