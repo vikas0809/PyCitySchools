@@ -21,7 +21,7 @@ As required,we performed various arithmatic and logical operations on the data p
 
 
 For detailed results and the code please refer to the jupyter notebook file below:
-[Challange_book][]
+[Challange_book](Student_Data_Challenge_Starter_Code.ipynb)
 
 
 ## Analysis process
@@ -70,11 +70,15 @@ To prepare and clean your data for analysis, complete the following steps:
 
             # Examine the grade column to understand why it is not an int
             c2_student_df['grade']
+     
+     ![3](Resources/3.png)
                
   * Check data types using the dtypes property.
 
             # Check data types
             c2_student_df.dtypes
+            
+     ![4](Resources/4.png)
             
   * Remove the "th" suffix from every value in the grade column using str and replace.
   
@@ -99,12 +103,14 @@ Describe the data using summary statistics on the data as a whole and on individ
 
             # Display summary statistics for the DataFrame
             c2_student_df.describe()
+      
+      ![5](Resources/5.png)
 
    * Display the mean math score using the mean function.
 
             # Display the mean math score using the mean function
             c2_student_df["math_score"].mean()
-
+     
    * Store the minimum reading score as min_reading_score.
 
             # Store the minimum reading score as min_reading_score
@@ -127,11 +133,15 @@ To drill down into the data, complete the following steps:
 
             # Use `iloc` to display the first 3 rows and columns 3, 4, and 5.
             c2_student_df.iloc[0:3,3:6]
+            
+      ![6](Resources/6.png)
 
    * Show the rows for grade nine using loc.
 
             # Select the rows for grade nine and display their summary statistics using `loc` and `describe`.
             c2_student_df.loc[c2_student_df['grade']==9].describe()
+            
+       ![7](Resources/7.png)
 
    * Store the row with the minimum overall reading score as min_reading_row using loc and the                         min_reading_score found in Deliverable 3.
 
@@ -139,6 +149,8 @@ To drill down into the data, complete the following steps:
             # using `loc` and the `min_reading_score` found in Deliverable 3.
             min_reading_row = c2_student_df.loc[c2_student_df['reading_score']== min_reading_score]
             min_reading_row
+      
+       ![8](Resources/8.png)
 
    * Find the reading scores for the school and grade from the output of step three using loc with multiple          conditional statements.
 
@@ -165,16 +177,22 @@ Make comparisons within your data by completing the following steps:
             # Use groupby and mean to find the average reading and math scores for each school type.
             c2_student_df.groupby('school_type')[['reading_score','math_score']].mean()
                * Using the groupby and count functions, find the total number of students at each school.
+      
+       ![9](Resources/9.png)
 
    * Using the groupby and count functions, find the total number of students at each school.
 
          # Use the `groupby`, `count`, and `sort_values` functions to find the
          # total number of students at each school and sort from most students to least students.
          c2_student_df.groupby('school_name')['student_id'].count().sort_values(ascending=False)
+         
+      ![10](Resources/10.png)
 
    * Using the groupby and mean functions, find the average budget per grade for each school type.
 
          c2_student_df.groupby(['school_type','grade'])['math_score'].mean().round(1)
+    
+     ![11](Resources/11.png)
             
 ### Summary
 
@@ -182,6 +200,8 @@ After performng all the steps and we were able to further analyse the data.We we
 
       #Desc list of school budgets overall
       c2_student_df.sort_values('school_budget',ascending = False).groupby('school_name')                                     [['school_name','school_type','school_budget']].head(1)
+      
+   ![12](Resources/12.png)
 
 We were able to create a list of school budgets in ascending order which helps us find the schools with min and maz budgets.Further we were able to break it down by scool type and dispayed two differnt list of public and charter schools.
 
@@ -189,12 +209,17 @@ We were able to create a list of school budgets in ascending order which helps u
       c2_student_df.loc[c2_student_df['school_type'] == "Public"].sort_values('school_budget',ascending =                     False).groupby('school_name')[['school_name','school_budget']].head(1)
       #Desc list of Charter schools budget.
       c2_student_df.loc[c2_student_df['school_type'] == "Charter"].sort_values('school_budget',ascending =                    False).groupby('school_name')[['school_name','school_budget']].head(1)
+   
+   ![13](Resources/13.png)
+   ![14](Resources/14.png)
 
 
 We used describe function to calculate statistcal numbers i.e mean,max,min etc for the reading score and math score.By doing this we can analyse the acedemic performance of the schools.
 
       #Acedemics stats for schools.
       c2_student_df.groupby(['school_type','school_name'])[['reading_score','math_score']].describe()
+  
+   ![15](Resources/15.png)
             
 We used the same function to calculate statistical numbers for school budget grouped by school type for every school.This helps us better understand the financial standing of each school.
 
