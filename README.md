@@ -42,7 +42,7 @@ Using the head function to confirm that Pandas properly imported the data.
       student_df.head()
       
       
-      
+  ![1](Resources/1.png)
       
       
 
