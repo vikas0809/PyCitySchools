@@ -46,7 +46,7 @@ Using the head function to confirm that Pandas properly imported the data.
       
       
 
-### Deliverable 2: Prepare the Data
+### Prepare the Data
 
 To prepare and clean your data for analysis, complete the following steps:
 
@@ -176,4 +176,24 @@ Make comparisons within your data by completing the following steps:
 
             c2_student_df.groupby(['school_type','grade'])['math_score'].mean().round(1)
             
- 
+### Summary
+
+After performng all the steps and we were able to further analyse the data.We were able to provide financial and acedimc stats for all the school group by school type.
+
+            #Desc list of school budgets overall
+            c2_student_df.sort_values('school_budget',ascending = False).groupby('school_name')                                     [['school_name','school_type','school_budget']].head(1)
+        
+We were able to create a list of school budgets in ascending order which helps us find the schools with min and maz budgets.Further we were able to break it down by scool type and dispayed two differnt list of public and charter schools.
+
+            #Desc. list of Public schools budget.
+            c2_student_df.loc[c2_student_df['school_type'] == "Public"].sort_values('school_budget',ascending =                     False).groupby('school_name')[['school_name','school_budget']].head(1)
+            #Desc list of Charter schools budget.
+            c2_student_df.loc[c2_student_df['school_type'] == "Charter"].sort_values('school_budget',ascending =                    False).groupby('school_name')[['school_name','school_budget']].head(1)
+
+
+We used describe function to calculate statistcal numbers i.e mean,max,min etc for the reading score and math score.By doing this we can analyse the acedemic performance of the schools.
+
+            #Acedemics stats for schools.
+            c2_student_df.groupby(['school_type','school_name'])[['reading_score','math_score']].describe()
+            
+We used the same function to calculate statistical numbers for school budget grouped by school type for every school.This helps us better understand the financial standing of each school.
